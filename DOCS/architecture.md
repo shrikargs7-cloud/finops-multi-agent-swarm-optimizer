@@ -3,7 +3,7 @@
 This document provides a deep technical breakdown of the data schemas, node transitions,
 and communication mechanics defining the FinOps Multi-Agent Swarm Optimizer.
 
-## 🏗️ Topology & Topology Diagram
+## Topology & Topology Diagram
 The system is constructed as an asynchronous, directed acyclic graph (DAG) 
 utilizing stateful sequential routing combined with a synchronization checkpoint (Human-in-the-Loop gate).
 
@@ -24,7 +24,7 @@ utilizing stateful sequential routing combined with a synchronization checkpoint
 ▼ (State: Signed Release Artifact)
 [Final Output]
 
-## 🧠 State Mechanics & Communication Layers
+## State Mechanics & Communication Layers
 Instead of stateless individual completions, the execution environment passes an aggregated context array downstream:
 
 1. **State Injection (`Input $\rightarrow$ Agent 1`):** Raw unparsed infrastructure files are contextualized. 
@@ -32,7 +32,7 @@ Instead of stateless individual completions, the execution environment passes an
  It appends a structured summary matrix to the context layer.
 3. **Synthesis & Mutation (`Agent 2 $\rightarrow$ HITL`):** Agent 2 extracts the vulnerability metrics from the context layer and matches them against pre-saved patterns fetched via the **"Walk a bug from..." Engineering Skill** to mutate the infrastructure parameters safely.
 
-## 🛑 Guardrails & Safety Parameters
+## Guardrails & Safety Parameters
 * **Model Control:** Agent 1 and Agent 3 are locked down to a `0.0` - `0.1` temperature configuration to eliminate
 *  structural variance or prompt hallucinations when evaluating system errors.
 * **Deterministic Filtering:** Hard PII filtering is enforced server-side across incoming payloads to shield corporate access identifiers, cloud keys, or target IP na
